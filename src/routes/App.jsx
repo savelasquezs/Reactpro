@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import NavButton from './components/Sidebar/NavButton';
-import Modal from './components/Modal';
+import NavButton from '../components/Sidebar/NavButton';
+import Modal from '../components/Modal';
 
 function App() {
 	const [papacho, setPapacho] = useState('Mi fai');

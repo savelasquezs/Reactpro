@@ -1,10 +1,13 @@
-function NavButton({ title, icon }) {
-  return (
-    <div>
-      {icon && <div>{icon}</div>}
-      <div>{title}</div>
-    </div>
-  );
+import React from 'react';
+
+function NavButton() {
+	return (
+		<nav>
+			<ul>
+				<li>No sepo</li>
+			</ul>
+		</nav>
+	);
 }
 
 export default NavButton;
