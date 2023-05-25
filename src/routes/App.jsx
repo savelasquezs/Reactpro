@@ -43,6 +43,7 @@ function App() {
 					onSubmit={handleSubmit}
 					showModal={showModal}
 					closeModal={closeModal}
+					title="Create customer"
 				/>
 			</div>
 		</>

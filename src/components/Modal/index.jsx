@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './modal.css';
 
 const Modal = ({
+	title,
 	inputs,
 	submitButtonText,
 	onSubmit,
@@ -26,26 +27,37 @@ const Modal = ({
 	}
 
 	return (
-		<div className="modal-overlay">
-			<div className="modal">
-				<button className="close-button" onClick={closeModal}>
+		<div className="modal_mio-overlay">
+			<div className="modal_mio">
+				{/* <button className="close-button " onClick={closeModal}>
 					&times;
-				</button>
-				<div className="modal-content">
+				</button> */}
+				<button
+					type="button"
+					className="btn-close float-end mb-3"
+					onClick={closeModal}
+				></button>
+				<h3 className="text-center">{title}</h3>
+				<div className="modal_mio-content">
 					<form onSubmit={handleSubmit}>
 						{inputs.map((input) => (
 							<div key={input.variable} className="input-group">
-								<label htmlFor={input.variable}>{input.label}</label>
 								<input
 									type={input.type}
 									name={input.variable}
 									placeholder={input.label}
 									value={formValues[input.variable] || ''}
 									onChange={handleInputChange}
+									className="form-control"
 								/>
 							</div>
 						))}
-						<button type="submit">{submitButtonText}</button>
+						<button
+							type="submit"
+							className="btn btn-outline-success w-100 mt-3"
+						>
+							{submitButtonText}
+						</button>
 					</form>
 				</div>
 			</div>

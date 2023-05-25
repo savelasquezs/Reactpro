@@ -1,5 +1,5 @@
-/* Estilos CSS para el Modal */
-.modal-overlay {
+/* Estilos CSS para el Modal_mio */
+.modal_mio-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.modal {
+.modal_mio {
     background-color: #fff;
     border-radius: 4px;
     padding: 20px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-.modal-content {
+.modal_mio-content {
     margin-bottom: 20px;
 }
 
