@@ -5,7 +5,7 @@ import NavItem from '../components/navItem';
 export default function Root() {
 	return (
 		<>
-			<div className="d-flex mt-3">
+			<div className="d-flex mt-3 ">
 				<div id="sidebar">
 					<div className="logo">
 						<img src="src\assets\img\inv_transp.png" alt="" />
@@ -31,7 +31,7 @@ export default function Root() {
 						<NavItem icon="ion:log-out" title="Log out" link="login" />
 					</ul>
 				</div>
-				<div id="detail">
+				<div id="details flex-fill">
 					<Outlet />
 				</div>
 			</div>
