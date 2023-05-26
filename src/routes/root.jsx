@@ -1,36 +1,40 @@
+import { Outlet } from 'react-router-dom';
+import './root.css';
+import NavItem from '../components/navItem';
+
 export default function Root() {
 	return (
 		<>
-			<div id="sidebar">
-				<h1>React Router Contacts</h1>
-				<div>
-					<form id="search-form" role="search">
-						<input
-							id="q"
-							aria-label="Search contacts"
-							placeholder="Search"
-							type="search"
-							name="q"
-						/>
-						<div id="search-spinner" aria-hidden hidden={true} />
-						<div className="sr-only" aria-live="polite"></div>
-					</form>
-					<form method="post">
-						<button type="submit">New</button>
-					</form>
-				</div>
-				<nav>
+			<div className="d-flex mt-3">
+				<div id="sidebar">
+					<div className="logo">
+						<img src="src\assets\img\inv_transp.png" alt="" />
+					</div>
+
 					<ul>
-						<li>
-							<a href={`/login`}>login</a>
-						</li>
-						<li>
-							<a href={`/contacts/2`}>Your Friend</a>
-						</li>
+						<NavItem
+							icon="material-symbols:order-approve"
+							title="Orders"
+							link="orders"
+						/>
+						<NavItem
+							icon="file-icons:dashboard"
+							title="Dashboard"
+							link="miguel"
+						/>
+						<NavItem icon="icon-park-solid:buy" title="Purchases" link="app" />
+						<NavItem
+							icon="icon-park-solid:config"
+							title="Config"
+							link="register"
+						/>
+						<NavItem icon="ion:log-out" title="Log out" link="login" />
 					</ul>
-				</nav>
+				</div>
+				<div id="detail">
+					<Outlet />
+				</div>
 			</div>
-			<div id="detail"></div>
 		</>
 	);
 }

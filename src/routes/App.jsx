@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import './App.css';
-import NavButton from '../components/Sidebar/NavButton';
 import Modal from '../components/Modal';
 
 function App() {
@@ -33,7 +31,6 @@ function App() {
 			<input type="text" onChange={(e) => setPapacho(e.target.value)} />
 			<h2>Hola mi papacho</h2>
 			<p>{papacho}</p>
-			<NavButton title="Hola mi so" icon="❤️" />
 			<div>
 				<h1>Página Principal</h1>
 				<button onClick={openModal}>Abrir Modal</button>

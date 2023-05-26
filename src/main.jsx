@@ -7,12 +7,18 @@ import Root from './routes/root';
 import Login from './views/Login';
 import ErrorPage from './error-page';
 import Register from './views/Register';
+import Miguel from './views/Miguel';
+import Orders from './views/Orders';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Root />,
 		errorElement: <ErrorPage />,
+		children: [
+			{ path: '/miguel', element: <Miguel />, errorElement: <ErrorPage /> },
+			{ path: '/orders', element: <Orders />, errorElement: <ErrorPage /> },
+		],
 	},
 	{
 		path: '/login',
