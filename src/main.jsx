@@ -9,6 +9,7 @@ import ErrorPage from './error-page';
 import Register from './views/Register';
 import Miguel from './views/Miguel';
 import Orders from './views/Orders';
+import { Purchases } from './views/Purchases/index.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
 		children: [
 			{ path: '/miguel', element: <Miguel />, errorElement: <ErrorPage /> },
 			{ path: '/orders', element: <Orders />, errorElement: <ErrorPage /> },
+			{
+				path: '/purchases',
+				element: <Purchases />,
+				errorElement: <ErrorPage />,
+			},
 		],
 	},
 	{

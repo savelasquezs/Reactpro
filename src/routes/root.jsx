@@ -22,7 +22,11 @@ export default function Root() {
 							title="Dashboard"
 							link="miguel"
 						/>
-						<NavItem icon="icon-park-solid:buy" title="Purchases" link="app" />
+						<NavItem
+							icon="icon-park-solid:buy"
+							title="Purchases"
+							link="purchases"
+						/>
 						<NavItem
 							icon="icon-park-solid:config"
 							title="Config"
