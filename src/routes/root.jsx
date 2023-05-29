@@ -31,7 +31,7 @@ export default function Root() {
 						<NavItem icon="ion:log-out" title="Log out" link="login" />
 					</ul>
 				</div>
-				<div id="details flex-fill">
+				<div id="details" className="flex-fill">
 					<Outlet />
 				</div>
 			</div>

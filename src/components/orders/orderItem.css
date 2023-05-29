@@ -1,0 +1,54 @@
+.orden_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px;
+    gap: 20px;
+    color: white;
+
+    width: 100%;
+    height: 100px;
+
+    /* Dark Blue */
+
+    background: #003049;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+
+}
+
+.orden_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    width: 98%;
+    height: 15px;
+}
+
+.orden_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 98%;
+    height: 25px;
+
+}
+
+.orden_pago {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+
+    width: 119px;
+    height: 25px;
+}
