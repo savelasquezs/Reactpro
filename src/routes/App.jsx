@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Modal from '../components/Modal';
 
 function App() {
-	const [papacho, setPapacho] = useState('Mi fai');
 	const [showModal, setShowModal] = useState(false);
 	const openModal = () => {
 		setShowModal(true);
@@ -28,9 +27,6 @@ function App() {
 
 	return (
 		<>
-			<input type="text" onChange={(e) => setPapacho(e.target.value)} />
-			<h2>Hola mi papacho</h2>
-			<p>{papacho}</p>
 			<div>
 				<h1>Página Principal</h1>
 				<button onClick={openModal}>Abrir Modal</button>
