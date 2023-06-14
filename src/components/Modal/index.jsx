@@ -48,6 +48,7 @@ const Modal = ({
 									placeholder={input.label}
 									value={formValues[input.variable] || ''}
 									onChange={handleInputChange}
+									accept={input.type == 'file' ? 'image/*' : ''}
 									className="form-control"
 								/>
 							</div>

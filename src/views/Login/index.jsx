@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { logIn } from '../../authentication';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
 
 function App() {
+	const navigate = useNavigate();
 	const [formData, setFormData] = useState({}); // State to hold form data
 
 	const handleChange = (event) => {
 		// Update the form data state when input values change
 		const { name, value } = event.target;
 		setFormData({ ...formData, [name]: value });
+	};
+	const logIn = (email, password) => {
+		signInWithEmailAndPassword(auth, email, password)
+			.then((result) => {
+				// if (result.user.emailVerified) {
+				navigate('/');
+				setTimeout(() => {
+					alert(`Welcome ${result.user.displayName}`);
+				}, 2000);
+				// } else {
+				// 	signOut(auth);
+				// 	alert(`Verify your email please`);
+				// }
+			})
+			.catch((err) => {
+				alert(err.code);
+				console.log(err.code);
+			});
 	};
 
 	const handleSubmit = (event) => {
@@ -17,6 +37,7 @@ function App() {
 		console.log(formData);
 		logIn(email, password);
 	};
+
 	return (
 		<div className="container mt-5 w-25 p-5 border rounded shadow">
 			<h3 className="text-center mb-4">Log in</h3>

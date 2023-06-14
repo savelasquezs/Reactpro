@@ -1,8 +1,15 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, redirect } from 'react-router-dom';
 import './root.css';
 import NavItem from '../components/navItem';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
 export default function Root() {
+	const salir = () => {
+		signOut(auth);
+		redirect('/');
+	};
+
 	return (
 		<>
 			<div className="d-flex mt-3 ">
@@ -32,7 +39,12 @@ export default function Root() {
 							title="Config"
 							link="register"
 						/>
-						<NavItem icon="ion:log-out" title="Log out" link="login" />
+						<NavItem
+							icon="ion:log-out"
+							title="Log out"
+							link="login"
+							onClick="salir"
+						/>
 					</ul>
 				</div>
 				<div id="details" className="flex-fill">
