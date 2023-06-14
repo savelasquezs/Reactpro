@@ -1,0 +1,31 @@
+
+
+
+.details button{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 30px;
+    border-radius: 50px;
+    border: none;
+    background: #003049;
+    color:white;
+    font-weight: 500;
+    font-size: 1.5rem;
+
+}
+.details span{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -55%);
+}
+
+p{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+
+}

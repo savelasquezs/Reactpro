@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './routes/App.jsx';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+	createBrowserRouter,
+	Navigate,
+	redirect,
+	RouterProvider,
+} from 'react-router-dom';
 import Root from './routes/root';
 import Login from './views/Login';
 import ErrorPage from './error-page';
@@ -10,6 +15,8 @@ import Register from './views/Register';
 import Miguel from './views/Miguel';
 import Orders from './views/Orders';
 import { Purchases } from './views/Purchases/index.jsx';
+import { auth } from './firebaseConfig/index.js';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const router = createBrowserRouter([
 	{

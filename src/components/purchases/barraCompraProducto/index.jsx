@@ -1,5 +1,7 @@
 import './index.css';
 import { useState } from 'react';
+import './index.css';
+import { useState } from 'react';
 
 function Barra({ producto }) {
 	const imagen = producto.imagen;
