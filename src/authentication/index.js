@@ -4,7 +4,12 @@ import {
 	sendEmailVerification,
 	signOut,
 	signInWithEmailAndPassword,
+	GoogleAuthProvider,
+	signInWithPopup,
+	FacebookAuthProvider,
+	sendPasswordResetEmail,
 } from 'firebase/auth';
+import { redirect } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
 
 const createAccount = (email, password, name) => {
@@ -23,15 +28,32 @@ const createAccount = (email, password, name) => {
 		.catch((err) => alert(err));
 };
 
+const authCuentaGoogle = () => {
+	const providerGoogle = new GoogleAuthProvider();
+	signInWithPopup(auth, providerGoogle).then((result) => {
+		console.log(result);
+		console.log(result.user);
+	});
+};
+const authCuentaFacebook = () => {
+	const providerFacebook = new FacebookAuthProvider();
+	signInWithPopup(auth, providerFacebook).then((result) => {
+		console.log(result);
+		console.log(result.user);
+	});
+};
+
+const sendPasswordReset = (email) => {
+	sendPasswordResetEmail(auth, email)
+		.then((result) => console.log(result))
+		.catch((err) => alert(err));
+};
+
 const logIn = (email, password) => {
 	signInWithEmailAndPassword(auth, email, password)
 		.then((result) => {
-			if (result.user.emailVerified) {
-				alert(`Welcome ${result.user.displayName}`);
-			} else {
-				signOut(auth);
-				alert(`Verify your email please`);
-			}
+			alert(`Welcome ${result.user.displayName}`);
+			redirect('/miguel');
 		})
 		.catch((err) => {
 			alert(err.code);
@@ -39,4 +61,10 @@ const logIn = (email, password) => {
 		});
 };
 
-export { createAccount, logIn };
+export {
+	createAccount,
+	logIn,
+	authCuentaGoogle,
+	authCuentaFacebook,
+	sendPasswordReset,
+};

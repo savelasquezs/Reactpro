@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logIn } from '../../authentication';
+import {
+	logIn,
+	authCuentaGoogle,
+	authCuentaFacebook,
+	sendPasswordReset,
+} from '../../authentication';
+import { Icon } from '@iconify/react';
 
 function App() {
 	const [formData, setFormData] = useState({}); // State to hold form data
@@ -16,6 +22,15 @@ function App() {
 		const { email, password } = formData;
 		console.log(formData);
 		logIn(email, password);
+	};
+
+	const signInGoogle = (e) => {
+		e.preventDefault();
+		authCuentaGoogle();
+	};
+	const signInFacebook = (e) => {
+		e.preventDefault();
+		authCuentaFacebook();
 	};
 	return (
 		<div className="container mt-5 w-25 p-5 border rounded shadow">
@@ -61,11 +76,32 @@ function App() {
 						Check me out
 					</label>
 				</div>
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="btn btn-primary w-100 h-25 ">
 					Submit
 				</button>
 			</form>
 			<Link to="/register">Dont´t have an account? Sign up</Link>
+			<button
+				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
+				type="button"
+				onClick={() => sendPasswordReset(formData['email'])}
+			>
+				Forgot your password?
+			</button>
+			<button
+				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
+				onClick={signInGoogle}
+			>
+				<span>Or sign in with Google</span>
+				<Icon icon="devicon:google" width="20" />
+			</button>
+			<button
+				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
+				onClick={signInFacebook}
+			>
+				<span>Or sign in with Facebook</span>
+				<Icon icon="devicon:facebook" width="20" />
+			</button>
 		</div>
 	);
 }
