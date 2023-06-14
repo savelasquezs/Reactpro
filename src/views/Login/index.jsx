@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import {
-	auth,
-	authCuentaGoogle,
-	authCuentaFacebook,
-	sendPasswordReset,
-} from '../../firebaseConfig';
+	GoogleAuthProvider,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+} from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
 import { Icon } from '@iconify/react';
 
 function App() {
@@ -45,8 +44,10 @@ function App() {
 	};
 
 	const signInGoogle = (e) => {
-		e.preventDefault();
-		authCuentaGoogle();
+		const provider = new GoogleAuthProvider();
+		signInWithPopup(auth, provider).then((result) => {
+			navigate('/');
+		});
 	};
 	const signInFacebook = (e) => {
 		e.preventDefault();
@@ -101,13 +102,13 @@ function App() {
 				</button>
 			</form>
 			<Link to="/register">Dont´t have an account? Sign up</Link>
-			<button
+			{/* <button
 				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
 				type="button"
 				onClick={() => sendPasswordReset(formData['email'])}
 			>
 				Forgot your password?
-			</button>
+			</button> */}
 			<button
 				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
 				onClick={signInGoogle}
@@ -115,13 +116,13 @@ function App() {
 				<span>Or sign in with Google</span>
 				<Icon icon="devicon:google" width="20" />
 			</button>
-			<button
+			{/* <button
 				className="btn my-2 btn-light d-block w-100 h-25 d-flex justify-content-evenly"
 				onClick={signInFacebook}
 			>
 				<span>Or sign in with Facebook</span>
 				<Icon icon="devicon:facebook" width="20" />
-			</button>
+			</button> */}
 		</div>
 	);
 }

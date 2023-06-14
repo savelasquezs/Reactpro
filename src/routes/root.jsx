@@ -47,7 +47,20 @@ export default function Root() {
 						/>
 					</ul>
 				</div>
+
 				<div id="details" className="flex-fill">
+					<div className="d-flex justify-content-between m-3">
+						{auth.currentUser && (
+							<strong>Bienvenido {auth.currentUser.displayName}</strong>
+						)}
+						{auth.currentUser?.photoURL && (
+							<img
+								src={auth.currentUser?.photoURL}
+								className="rounded-circle"
+								style={{ width: '50px' }}
+							/>
+						)}
+					</div>
 					<Outlet />
 				</div>
 			</div>
