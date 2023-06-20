@@ -4,7 +4,7 @@ import './index.css';
 function Productos({ producto, pedidos, precio_venta, ganancia }) {
 	return (
 		<>
-			{/* <div className='nombres-prodcutos'>
+			<div className='nombres-prodcutos'>
                 <th>Productos</th>
                 <th>Pedidos</th>
                 <th>Precio Venta</th>
@@ -17,7 +17,7 @@ function Productos({ producto, pedidos, precio_venta, ganancia }) {
                 <th>{precio_venta}</th>
                 <th>{ganancia}</th>
             </table>
-        </div> */}
+        </div>
 		</>
 	);
 }
